@@ -8,7 +8,7 @@
 		"test:sol": "npm run generate:testing-data && forge test --ffi",
 		"test:spec": "npx hardhat test test/*.spec.ts",
 		"test:integration": "npx hardhat --config hardhat-fork.config.ts test",
-		"test:all": "npm run generate:testing-data && npx hardhat --config hardhat-fork.config.ts test && FOUNDRY_PROFILE=0_8_20 forge test --match-path test/0.8.20/* --ffi && forge test --no-match-path test/0.8.20 --ffi",
+		"test:all": "npm run generate:testing-data && npx hardhat --config hardhat.config.ts test && FOUNDRY_PROFILE=0_8_20 forge test --match-path test/0.8.20/* --ffi && forge test --no-match-path test/0.8.20 --ffi",
 		"coverage": "./utils/coverage.sh",
 		"foundry:coverage:report": "forge coverage --ffi --report lcov && genhtml lcov.info -o coverage --branch-coverage",
 		"compile": "forge compile",
