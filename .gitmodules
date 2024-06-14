@@ -37,3 +37,6 @@
 	url = https://github.com/OffchainLabs/nitro-contracts
 	branch = main
     ignore = dirty
+[submodule "lib/erc721a"]
+	path = lib/erc721a
+	url = https://github.com/chiru-labs/ERC721A
