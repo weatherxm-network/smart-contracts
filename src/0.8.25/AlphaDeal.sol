@@ -29,10 +29,10 @@ contract AlphaDeal is ERC721A, Ownable2Step, IAlphaDeal {
   /**
    * @notice Update the base URI
    * @dev Update the base URI. Only callbale by the owner
-   * @param _baseURI The new base URI
+   * @param newBaseURI The new base URI
    */
-  function setBaseURI(string memory _baseURI) external onlyOwner whenMetadataNotFrozen {
-    baseURI = _baseURI;
+  function setBaseURI(string memory newBaseURI) external onlyOwner whenMetadataNotFrozen {
+    baseURI = newBaseURI;
 
     emit BatchMetadataUpdate(0, type(uint256).max);
   }
@@ -58,16 +58,14 @@ contract AlphaDeal is ERC721A, Ownable2Step, IAlphaDeal {
     emit MetadataFreeze();
   }
 
-  /* ========== USER FUNCTIONS ========== */
+  /* ========== INTERNAL FUNCTIONS ========== */
 
   /**
-   * @notice Return the URI for a token
-   * @dev Return the URI for a token. Reverts if the token does not exist
-   * @param tokenId The token for which to return the URI
-   */
-  function tokenURI(uint256 tokenId) public view override(ERC721A, IAlphaDeal) returns (string memory) {
-    if (!_exists(tokenId)) _revert(URIQueryForNonexistentToken.selector);
-
+  * @dev Base URI for computing {tokenURI}. If set, the resulting URI for each
+  * token will be the concatenation of the `baseURI` and the `tokenId`. Empty
+  * by default, it can be overridden in child contracts.
+  */
+  function _baseURI() internal view override returns (string memory) {
     return baseURI;
   }
 }

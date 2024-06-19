@@ -172,12 +172,12 @@ describe('AlphaDeal', () => {
     it('should return the baseURI for all tokens', async () => {
       const { alphaDeal, deployer } = await loadFixture(deployInitialStateFixture);
 
-      await alphaDeal.connect(deployer).setBaseURI('ipfs://path')
+      await alphaDeal.connect(deployer).setBaseURI('ipfs://path/')
 
       for(let i = 0 ; i < 1500 ; i++) {
         const uri = await alphaDeal.tokenURI(i)
 
-        expect(uri).to.equal('ipfs://path')
+        expect(uri).to.equal(`ipfs://path/${i}`)
       }
     })
   })

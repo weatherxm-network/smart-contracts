@@ -36,13 +36,6 @@ interface IAlphaDeal is IERC721A {
   /* ========== USER FUNCTIONS ========== */
 
   /**
-   * @notice Return the URI for a token
-   * @dev Return the URI for a token. Reverts if the token does not exist
-   * @param tokenId The token for which to return the URI
-   */
-  function tokenURI(uint256 tokenId) external view returns (string memory);
-
-  /**
    * @notice Return the URI with the contract metadata
    * @dev Return the URI with the contract metadata
    */
