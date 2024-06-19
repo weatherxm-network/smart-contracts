@@ -61,10 +61,10 @@ contract AlphaDeal is ERC721A, Ownable2Step, IAlphaDeal {
   /* ========== INTERNAL FUNCTIONS ========== */
 
   /**
-  * @dev Base URI for computing {tokenURI}. If set, the resulting URI for each
-  * token will be the concatenation of the `baseURI` and the `tokenId`. Empty
-  * by default, it can be overridden in child contracts.
-  */
+   * @dev Base URI for computing {tokenURI}. If set, the resulting URI for each
+   * token will be the concatenation of the `baseURI` and the `tokenId`. Empty
+   * by default, it can be overridden in child contracts.
+   */
   function _baseURI() internal view override returns (string memory) {
     return baseURI;
   }
